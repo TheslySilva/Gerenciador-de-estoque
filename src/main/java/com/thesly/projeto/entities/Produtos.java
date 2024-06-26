@@ -14,7 +14,7 @@ import jakarta.persistence.TemporalType;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Produtos {
+public class Produtos{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +24,7 @@ public class Produtos {
     @Column(name = "nome", nullable = false, unique = true)
     private String nome;
 
-    @Column(name = "tipo_produto", nullable = false)
+    @Column(name = "tipo", nullable = false)
     private String tipoProduto;
 
     @Column(name = "tamanho", nullable = false)
