@@ -29,7 +29,8 @@ public class SaidaProdutos extends Produtos {
 
     int quantidadeProdutos,
     Date saida,
-
+    String tipoProduto,
+    int tamanho,
     String nome,
     int quantidade,
     double valorUnidade,
@@ -41,6 +42,8 @@ public class SaidaProdutos extends Produtos {
     super(
       nome,
       quantidade,
+      tipoProduto,
+      tamanho,
       valorUnidade,
       valorLote,
       fabricacao,

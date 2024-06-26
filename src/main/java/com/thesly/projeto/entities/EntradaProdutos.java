@@ -30,6 +30,8 @@ public class EntradaProdutos extends Produtos {
     Date entrada,
     String nome,
     int quantidade,
+    String tipoProduto,
+    int tamanho,
     double valorUnidade,
     double valorLote,
     Date fabricacao,
@@ -38,6 +40,8 @@ public class EntradaProdutos extends Produtos {
     super(
       nome,
       quantidade,
+      tipoProduto,
+      tamanho,
       valorUnidade,
       valorLote,
       fabricacao,
