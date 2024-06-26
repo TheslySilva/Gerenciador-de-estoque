@@ -52,6 +52,8 @@ public class ProdutosController{
 
       produto.setNome(detalhesProduto.getNome());
       produto.setQuantidade(detalhesProduto.getQuantidade());
+      produto.setTipoProduto(detalhesProduto.getTipoProduto());
+      produto.setTamanho(detalhesProduto.getTamanho());
       produto.setValorUnidade(detalhesProduto.getValorUnidade());
       produto.setValorLote(detalhesProduto.getValorLote());
       produto.setFabricacao(detalhesProduto.getFabricacao());

@@ -27,6 +27,9 @@ public class Produtos {
     @Column(name = "tipo_produto", nullable = false)
     private String tipoProduto;
 
+    @Column(name = "tamanho", nullable = false)
+    private int tamanho;
+
     @Column(name = "quantidade",nullable = false)
     private int quantidade;
 
@@ -50,7 +53,9 @@ public class Produtos {
 
     public Produtos( 
       String nome, 
-      int quantidade, 
+      int quantidade,
+      String tipoProduto,
+      int tamanho,
       double valorUnidade, 
       double valorLote, 
       Date fabricacao,
@@ -58,6 +63,8 @@ public class Produtos {
       ) {
         this.nome = nome;
         this.quantidade = quantidade;
+        this.tipoProduto = tipoProduto;
+        this.tamanho = tamanho;
         this.valorUnidade = valorUnidade;
         this.valorLote = valorLote;
         this.fabricacao = fabricacao;
@@ -83,6 +90,14 @@ public class Produtos {
 
     public void setTipoProduto(String tipoProduto) {
     this.tipoProduto = tipoProduto;
+    }
+
+    public void setTamanho(int tamanho) {
+    this.tamanho = tamanho;
+    }
+
+    public int getTamanho() {
+    return tamanho;
     }
 
     public int getQuantidade() {
