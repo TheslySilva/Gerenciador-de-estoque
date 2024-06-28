@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.thesly.projeto.dtos.ProdutosDTO;
 import com.thesly.projeto.entities.Produtos;
+import com.thesly.projeto.mappers.ProdutosMapper;
 import com.thesly.projeto.services.ProdutosServices;
 
 @RestController
@@ -26,6 +29,7 @@ public class ProdutosController{
   
   @GetMapping
   public List<Produtos> pegarTodosProdutos(){
+
     return produtosService.pegarTodos();
   }
 
@@ -38,8 +42,14 @@ public class ProdutosController{
   }
 
   @PostMapping
-  public Produtos criarProduto(@RequestBody Produtos produtos){
-    return produtosService.salvarProduto(produtos);
+  public ResponseEntity<ProdutosDTO> criarProduto(@RequestBody ProdutosDTO produtosDTO){
+
+    Produtos produto = ProdutosMapper.toEntity(produtosDTO);
+    Produtos salvarProdutos = produtosService.salvarProduto(produto);
+    ProdutosDTO salvarProdutoDTO = ProdutosMapper.toDTO(salvarProdutos);
+
+
+    return ResponseEntity.status(HttpStatus.CREATED).body(salvarProdutoDTO);
   }
 
   @PutMapping("/{id}")

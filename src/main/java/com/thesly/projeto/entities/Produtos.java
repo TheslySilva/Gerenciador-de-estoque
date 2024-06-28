@@ -24,20 +24,23 @@ public class Produtos{
     @Column(name = "nome", nullable = false, unique = true)
     private String nome;
 
+    @Column(name = "marca", nullable = false)
+    private String marca;
+
     @Column(name = "tipo", nullable = false)
     private String tipoProduto;
 
     @Column(name = "tamanho", nullable = false)
-    private int tamanho;
+    private String tamanho;
 
     @Column(name = "quantidade",nullable = false)
-    private int quantidade;
+    private Integer quantidade;
 
     @Column(name = "valor_unidade",nullable = false)
-    private double valorUnidade;
+    private Double valorUnidade;
 
     @Column(name = "valor_lote", nullable = false)
-    private double valorLote;
+    private Double valorLote;
 
     @Column(name = "fabricacao", nullable = false)
     @Temporal(TemporalType.DATE)
@@ -52,16 +55,18 @@ public class Produtos{
     }
 
     public Produtos( 
-      String nome, 
-      int quantidade,
+      String nome,
+      String marca,
+      Integer quantidade,
       String tipoProduto,
-      int tamanho,
-      double valorUnidade, 
-      double valorLote, 
+      String tamanho,
+      Double valorUnidade, 
+      Double valorLote, 
       Date fabricacao,
       Date vencimento
       ) {
         this.nome = nome;
+        this.marca = marca;
         this.quantidade = quantidade;
         this.tipoProduto = tipoProduto;
         this.tamanho = tamanho;
@@ -83,6 +88,14 @@ public class Produtos{
     public void setNome(String nome) {
         this.nome = nome;
     }
+  
+    public String getMarca() {
+    return marca;
+    }
+
+    public void setMarca(String marca) {
+    this.marca = marca;
+    }
 
     public String getTipoProduto() {
     return tipoProduto;
@@ -92,35 +105,35 @@ public class Produtos{
     this.tipoProduto = tipoProduto;
     }
 
-    public void setTamanho(int tamanho) {
+    public void setTamanho(String tamanho) {
     this.tamanho = tamanho;
     }
 
-    public int getTamanho() {
+    public String getTamanho() {
     return tamanho;
     }
 
-    public int getQuantidade() {
+    public Integer getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(int quantidade) {
+    public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
     }
 
-    public double getValorUnidade() {
+    public Double getValorUnidade() {
         return valorUnidade;
     }
 
-    public void setValorUnidade(double valorUnidade) {
+    public void setValorUnidade(Double valorUnidade) {
         this.valorUnidade = valorUnidade;
     }
 
-    public double getValorLote() {
+    public Double getValorLote() {
         return valorLote;
     }
 
-    public void setValorLote(double valorLote) {
+    public void setValorLote(Double valorLote) {
         this.valorLote = valorLote;
     }
 

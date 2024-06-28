@@ -10,8 +10,8 @@ import jakarta.persistence.TemporalType;
 @Entity
 public class EntradaProdutos extends Produtos {
 
-  @Column(name = "quant_entrada_prod", nullable = false)
-  private int quantidadeProdutos;
+  @Column(name = "quant_produtos", nullable = false)
+  private Integer quantidadeProdutos;
 
   @Column(name = "entrada_produtos", nullable = false)
   @Temporal(TemporalType.DATE)
@@ -26,19 +26,21 @@ public class EntradaProdutos extends Produtos {
   }
 
   public EntradaProdutos(
-    int quantidadeProdutos,
+    Integer quantidadeProdutos,
     Date entrada,
     String nome,
-    int quantidade,
+    String marca,
+    Integer quantidade,
     String tipoProduto,
-    int tamanho,
-    double valorUnidade,
-    double valorLote,
+    String tamanho,
+    Double valorUnidade,
+    Double valorLote,
     Date fabricacao,
     Date vencimento
   ){
     super(
       nome,
+      marca,
       quantidade,
       tipoProduto,
       tamanho,
@@ -55,10 +57,10 @@ public class EntradaProdutos extends Produtos {
   //Getters e Setters
   //
 
-  public void setQuantidadeProdutos(int quantidadeProdutos) {
+  public void setQuantidadeProdutos(Integer quantidadeProdutos) {
     this.quantidadeProdutos = quantidadeProdutos;
   }
-  public int getQuantidadeProdutos() {
+  public Integer getQuantidadeProdutos() {
     return quantidadeProdutos;
   }
   public Date getEntrada() {
